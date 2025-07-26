@@ -1,0 +1,64 @@
+mermaid
+
+Copy code
+
+flowchart TD
+
+    Start([User Starts])
+
+    Login{Login?}
+
+    AuthMCP[MCP Auth]
+
+    AuthOK{Auth Success?}
+
+    NewJob{New Job Description?}
+
+    ParseJD[Parse Job Desc]
+
+    QNA[Q&A with User (Text/Voice)]
+
+    ResumeGen[Generate Resume]
+
+    UserReview{User Happy?}
+
+    EditQnA[Edit/Redo Q&A]
+
+    Save[Save to Cloud]
+
+    Share[Download/Share/Apply]
+
+    End([End])
+
+
+
+    Start --> Login
+
+    Login --> AuthMCP
+
+    AuthMCP --> AuthOK
+
+    AuthOK -- No --> Start
+
+    AuthOK -- Yes --> NewJob
+
+    NewJob -- Yes --> ParseJD
+
+    ParseJD --> QNA
+
+    QNA --> ResumeGen
+
+    ResumeGen --> UserReview
+
+    UserReview -- No --> EditQnA
+
+    EditQnA --> QNA
+
+    UserReview -- Yes --> Save
+
+    Save --> Share
+
+    Share --> End
+
+    NewJob -- No --> QNA
+

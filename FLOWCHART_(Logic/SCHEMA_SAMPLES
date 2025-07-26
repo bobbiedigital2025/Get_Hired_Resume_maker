@@ -1,0 +1,111 @@
+ "school": "string",
+
+      "degree": "string",
+
+      "year": "YYYY"
+
+    }
+
+  ],
+
+  "references": [
+
+    {
+
+      "name": "string",
+
+      "contact": "string"
+
+    }
+
+  ],
+
+  "resumes": [
+
+    {
+
+      "resume_id": "uuid",
+
+      "job_desc": "string",
+
+      "created": "timestamp",
+
+      "file_url": "string",
+
+      "version": "integer"
+
+    }
+
+  ]
+
+}
+
+Job Description (for parsing)
+
+json
+
+Copy code
+
+{
+
+  "job_id": "uuid",
+
+  "title": "string",
+
+  "company": "string",
+
+  "description": "string",
+
+  "requirements": ["string", "string"],
+
+  "location": "string",
+
+  "keywords": ["string", "string"]
+
+}
+
+Resume Record (Versioned)
+
+json
+
+Copy code
+
+{
+
+  "resume_id": "uuid",
+
+  "user_id": "uuid",
+
+  "job_id": "uuid",
+
+  "content": "string",
+
+  "ats_score": "float",
+
+  "created_at": "timestamp",
+
+  "updated_at": "timestamp",
+
+  "version": "integer"
+
+}
+
+Workflow Status
+
+json
+
+Copy code
+
+{
+
+  "workflow_id": "uuid",
+
+  "trigger": "string",
+
+  "status": "enum[waiting, running, failed, complete]",
+
+  "last_checked": "timestamp",
+
+  "log": ["string", "string"]
+
+}

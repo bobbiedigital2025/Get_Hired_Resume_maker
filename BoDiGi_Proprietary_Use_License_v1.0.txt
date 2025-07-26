@@ -1,0 +1,49 @@
+
+BoDiGi™ Proprietary Use License v1.0
+
+Copyright © [2025] Bobbie Jo Gray, Founder of Bobbie Digital™. All Rights Reserved.
+
+This is a legally binding license agreement between you (herein referred to as “User”) and Bobbie Digital™, founded by Bobbie Jo Gray, regarding use, access, reproduction, distribution, and modification of the BoDiGi™ software, platform, or digital content (hereafter referred to as the “Work”). Use of this Work constitutes your acceptance of the following terms.
+
+Definitions
+
+- "Work": Any and all software, code, content, automation workflows, visual designs, documentation, and intellectual property created by Bobbie Digital™ or its representatives, including but not limited to the BoDiGi™ platform and all associated Engagement Loop systems.
+- "User": Any individual, entity, company, or organization who accesses, views, installs, interacts with, or attempts to use any part of the Work.
+- "License": The legally granted permission described in this agreement.
+- "Unauthorized Use": Any use, reproduction, distribution, modification, sublicensing, or resale of the Work without an explicitly paid-for commercial license issued directly by Bobbie Digital™.
+- "Commercial Use": Any use of the Work that involves resale, revenue generation, lead generation, client service, SaaS deployment, or use within any product or service intended for public or private users.
+
+Permitted Uses (What You CAN Do)
+
+- Users may view, demo, and evaluate the Work strictly for personal, educational, or internal review purposes.
+- Users may request a commercial use license via written agreement with Bobbie Digital™.
+
+Prohibited Uses (What You CANNOT Do)
+
+- You may NOT copy, reproduce, clone, host, modify, reverse engineer, translate, or publicly display any part of the Work without explicit written permission and a paid commercial use license.
+- You may NOT sublicense, resell, lease, share, or distribute the Work in any form.
+- You may NOT use BoDiGi™, its code, assets, or engagement loops in any competitor product, automated builder, or AI-based replication system.
+- Any unauthorized use will be pursued to the fullest extent under U.S. and international law, including civil damages no less than $100,000,000 USD per offense.
+
+Commercial License Terms
+
+- Commercial use of this Work requires a paid license, the terms of which are defined per agreement with Bobbie Digital™.
+- Use of this Work without a license is a direct violation of this contract and intellectual property laws.
+- Licensing inquiries must be submitted to: legal@bobbiedigital.com or via official contact at bobbiedigital.com.
+
+Trademark and Ownership
+
+- BoDiGi™, Boltz™, Bobbie Digital™, and “We make going digital easy”™ are trademarks of Bobbie Jo Gray.
+- Unauthorized use of these names, brand identities, slogans, or visual likenesses is strictly prohibited and will be prosecuted under trademark law.
+
+No Warranty / Limitation of Liability
+
+The Work is provided “AS IS”, without warranty of any kind. Bobbie Digital™ makes no guarantees regarding functionality, uptime, suitability for purpose, or fitness for any particular use. You assume full responsibility for your use of the Work.
+
+Final Notes
+
+- This license is non-transferable and revocable at any time.
+- All rights not explicitly granted are reserved exclusively by Bobbie Jo Gray, Founder of Bobbie Digital™.
+
+© 2025 Bobbie Jo Gray. All Rights Reserved.
+Protected under U.S. and International Copyright and Trademark Law.

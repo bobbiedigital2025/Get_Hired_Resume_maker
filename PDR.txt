@@ -1,0 +1,44 @@
+﻿Product Development Requirements (PDR)
+MCP-Auth Resume Genius
+Last Updated: July 24, 2025
+1. Vision & Mission
+Vision: To deliver the world’s most trusted, AI-powered resume builder that empowers job seekers to land their dream jobs.
+Mission: We will achieve this by using secure MCP authentication, a human-centric conversational AI for data gathering, and a powerful optimization engine to create resumes that excel against both automated (ATS) and human reviews.
+2. Target Audience
+* Primary: Tech professionals, career changers, and recent graduates who need to create tailored resumes for multiple job applications.
+* Secondary: Career coaches and professional resume writers looking for tools to streamline their workflow.
+3. Core Features & User Stories
+This section outlines the primary features for the initial release (v1).
+F1: Secure User Authentication
+* User Story: As a new user, I want to create an account securely using my email and password so that my personal information is safe.
+* User Story: As a returning user, I want to log in to access my profile and resume history.
+* Technical Requirement: All user-facing API endpoints must be protected. A valid JSON Web Token (JWT) is required in the request header.
+F2: Job Description Analyzer
+* User Story: As a user, I want to paste a job description into the app so that the AI can analyze it and identify the most important keywords, skills, and qualifications.
+* Acceptance Criteria: The system should return a structured list of extracted skills (e.g., "React", "Node.js") and experience levels (e.g., "Senior").
+F3: Conversational Q&A Engine
+* User Story: As a user, I want the AI to ask me specific questions based on the job analysis so I can provide detailed, relevant examples of my experience.
+* Acceptance Criteria: Questions should be based on the STAR (Situation, Task, Action, Result) method to elicit high-quality, quantifiable answers. User answers must be saved to their cloud profile.
+F4: AI Resume Generator
+* User Story: As a user, I want to click a button to generate a complete resume that is tailored to the job description and uses the detailed answers I provided.
+* Acceptance Criteria:
+   * The generated resume must be professionally formatted.
+   * The language must sound natural and human-written, using varied action verbs and sentence structures.
+   * The resume must strategically include keywords from the job analysis.
+   * The system should provide a simulated ATS "pass rate" score.
+4. System & Technical Requirements
+* Security: All data must be encrypted at rest and in transit. Passwords must be hashed using bcryptjs.
+* API Design: The API should follow RESTful principles.
+* Modularity: The AI components (Parser, Q&A, Generator) should be designed as modular services, allowing for future upgrades or model-swapping without rewriting the entire application.
+* Cloud Native: The application must be designed to run in a cloud environment and connect to a cloud-based database (MongoDB Atlas, Supabase, etc.).
+5. Success Metrics (KPIs)
+The success of the v1 launch will be measured by:
+* User Engagement: Number of resumes generated per user.
+* ATS Performance: Achieve a target of 90%+ simulated ATS pass rate on generated resumes.
+* System Reliability: Maintain 99.9% uptime for the API service.
+* Onboarding Time: User can go from login to first generated resume in under 2 minutes.
+6. Future Scope (v2 and Beyond)
+* Voice and Audio input for the Chat Interface.
+* Admin Panel for analytics and user management.
+* Automated Self-Healing & Maintenance workflows.
+* Direct integration with job application platforms.
