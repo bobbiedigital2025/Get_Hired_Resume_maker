@@ -9,7 +9,7 @@ export const Dashboard: React.FC = () => {
     <Container>
       <Box sx={{ mt: 4 }}>
         <Typography variant="h4" gutterBottom>
-          Welcome{user?.name ? `, ${user.name}` : ''}!
+          Welcome{user?.firstName ? `, ${user.firstName}` : ''}!
         </Typography>
         <Typography variant="body1">
           Let's create your professional resume.
