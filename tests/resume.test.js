@@ -1,4 +1,5 @@
 const request = require('supertest');
+const { expect } = require('chai');
 const app = require('../src/server');
 const Resume = require('../src/models/resume');
 const { generateTestToken } = require('./setup');
@@ -22,8 +23,8 @@ describe('Resume Routes', () => {
           jobDescription: 'Test job description'
         });
 
-      expect(response.status).toBe(201);
-      expect(response.body.resume).toHaveProperty('targetJobTitle', 'Software Engineer');
+      expect(response.status).to.equal(201);
+      expect(response.body.resume).to.have.property('targetJobTitle', 'Software Engineer');
     });
   });
 
@@ -48,9 +49,9 @@ describe('Resume Routes', () => {
         .get('/api/resumes')
         .set('Authorization', `Bearer ${token}`);
 
-      expect(response.status).toBe(200);
-      expect(response.body.resumes).toBeInstanceOf(Array);
-      expect(response.body.resumes.length).toBeGreaterThan(0);
+      expect(response.status).to.equal(200);
+      expect(response.body.resumes).to.be.an('array');
+      expect(response.body.resumes.length).to.be.greaterThan(0);
     });
   });
 
@@ -81,8 +82,8 @@ describe('Resume Routes', () => {
           targetJobTitle: 'Senior Software Engineer'
         });
 
-      expect(response.status).toBe(200);
-      expect(response.body.resume.targetJobTitle).toBe('Senior Software Engineer');
+      expect(response.status).to.equal(200);
+      expect(response.body.resume.targetJobTitle).to.equal('Senior Software Engineer');
     });
   });
 });

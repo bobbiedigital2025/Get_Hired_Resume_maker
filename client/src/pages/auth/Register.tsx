@@ -15,7 +15,8 @@ import { loginStart, loginSuccess, loginFailure } from '../../store/slices/authS
 import { authService } from '../../services/auth';
 
 export const Register: React.FC = () => {
-  const [name, setName] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -33,7 +34,7 @@ export const Register: React.FC = () => {
 
     try {
       dispatch(loginStart());
-      const data = await authService.register({ name, email, password });
+      const data = await authService.register({ firstName, lastName, email, password });
       dispatch(loginSuccess(data));
       navigate('/dashboard', { replace: true });
     } catch (err) {
@@ -63,13 +64,25 @@ export const Register: React.FC = () => {
               margin="normal"
               required
               fullWidth
-              id="name"
-              label="Full Name"
-              name="name"
-              autoComplete="name"
+              id="firstName"
+              label="First Name"
+              name="firstName"
+              autoComplete="given-name"
               autoFocus
-              value={name}
-              onChange={(e) => setName(e.target.value)}
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
+              disabled={loading}
+            />
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="lastName"
+              label="Last Name"
+              name="lastName"
+              autoComplete="family-name"
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
               disabled={loading}
             />
             <TextField

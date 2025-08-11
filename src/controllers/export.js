@@ -1,5 +1,7 @@
 const exportService = require('../services/export');
 const Resume = require('../models/resume');
+const User = require('../models/user');
+const { Packer } = require('docx');
 
 const exportController = {
   // Export resume in various formats
@@ -17,31 +19,37 @@ const exportController = {
         return res.status(404).json({ error: 'Resume not found' });
       }
 
+      // Get user data for name and contact info
+      const user = await User.findById(req.user.userId);
+      if (!user) {
+        return res.status(404).json({ error: 'User not found' });
+      }
+
       let result;
       let contentType;
       let fileName;
 
       switch (format.toLowerCase()) {
         case 'pdf':
-          result = await exportService.generatePDF(resume, style);
+          result = await exportService.generatePDF(resume, user, style);
           contentType = 'application/pdf';
           fileName = `resume-${style}.pdf`;
           break;
 
         case 'docx':
-          result = await exportService.generateDOCX(resume, style);
+          result = await exportService.generateDOCX(resume, user, style);
           contentType = 'application/vnd.openxmlformats-officedocument.wordprocessingml.document';
           fileName = `resume-${style}.docx`;
           break;
 
         case 'txt':
-          result = exportService.generatePlainText(resume);
+          result = exportService.generatePlainText(resume, user);
           contentType = 'text/plain';
           fileName = 'resume.txt';
           break;
 
         case 'ats':
-          result = exportService.generateATSVersion(resume);
+          result = exportService.generateATSVersion(resume, user);
           contentType = 'text/plain';
           fileName = 'resume-ats.txt';
           break;

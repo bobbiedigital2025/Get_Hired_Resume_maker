@@ -1,8 +1,9 @@
 const OpenAI = require('openai');
 
-const openai = new OpenAI({
+// Initialize OpenAI client only if API key is available
+const openai = process.env.OPENAI_API_KEY ? new OpenAI({
   apiKey: process.env.OPENAI_API_KEY
-});
+}) : null;
 
 // List of common job-related keywords and skills for better parsing
 const COMMON_SKILLS = [
@@ -34,6 +35,10 @@ const aiService = {
   // Parse job description
   async parseJobDescription(jobDescription) {
     try {
+      if (!openai) {
+        throw new Error('OpenAI API key not configured');
+      }
+
       const response = await openai.chat.completions.create({
         model: "gpt-4",
         messages: [
@@ -59,6 +64,10 @@ const aiService = {
   // Generate STAR questions
   async generateQuestions(jobRequirements) {
     try {
+      if (!openai) {
+        throw new Error('OpenAI API key not configured');
+      }
+
       const response = await openai.chat.completions.create({
         model: "gpt-4",
         messages: [
@@ -84,6 +93,10 @@ const aiService = {
   // Optimize resume content
   async optimizeContent(experience, jobRequirements) {
     try {
+      if (!openai) {
+        throw new Error('OpenAI API key not configured');
+      }
+
       const response = await openai.chat.completions.create({
         model: "gpt-4",
         messages: [

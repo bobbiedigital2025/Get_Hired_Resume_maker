@@ -5,13 +5,13 @@ const jwt = require('jsonwebtoken');
 let mongoServer;
 
 // Setup MongoDB Memory Server for testing
-beforeAll(async () => {
+before(async () => {
   mongoServer = await MongoMemoryServer.create();
   const mongoUri = mongoServer.getUri();
   await mongoose.connect(mongoUri);
 });
 
-afterAll(async () => {
+after(async () => {
   await mongoose.disconnect();
   await mongoServer.stop();
 });

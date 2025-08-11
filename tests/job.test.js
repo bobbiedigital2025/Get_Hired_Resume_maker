@@ -1,4 +1,5 @@
 const request = require('supertest');
+const { expect } = require('chai');
 const app = require('../src/server');
 const { generateTestToken } = require('./setup');
 
@@ -25,9 +26,9 @@ describe('Job Analysis Routes', () => {
           `
         });
 
-      expect(response.status).toBe(200);
-      expect(response.body).toHaveProperty('analysis');
-      expect(response.body).toHaveProperty('questions');
+      expect(response.status).to.equal(200);
+      expect(response.body).to.have.property('analysis');
+      expect(response.body).to.have.property('questions');
     });
   });
 
@@ -41,8 +42,8 @@ describe('Job Analysis Routes', () => {
           section: 'summary'
         });
 
-      expect(response.status).toBe(200);
-      expect(response.body).toHaveProperty('optimizedContent');
+      expect(response.status).to.equal(200);
+      expect(response.body).to.have.property('optimizedContent');
     });
   });
 });
