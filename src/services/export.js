@@ -1,45 +1,45 @@
 const PDFDocument = require('pdfkit');
 const docx = require('docx');
-const { Document, Paragraph, TextRun, TableCell, Table, TableRow, HeadingLevel } = docx;
+const { Document, Paragraph, TextRun, TableCell, Table, TableRow, HeadingLevel, Packer } = docx;
 
 class ExportService {
   // PDF export with different styles
-  async generatePDF(resume, style = 'professional') {
+  async generatePDF(resume, user, style = 'professional') {
     const doc = new PDFDocument();
     
     switch(style) {
       case 'modern':
-        return this.generateModernPDF(doc, resume);
+        return this.generateModernPDF(doc, resume, user);
       case 'creative':
-        return this.generateCreativePDF(doc, resume);
+        return this.generateCreativePDF(doc, resume, user);
       case 'minimal':
-        return this.generateMinimalPDF(doc, resume);
+        return this.generateMinimalPDF(doc, resume, user);
       case 'professional':
       default:
-        return this.generateProfessionalPDF(doc, resume);
+        return this.generateProfessionalPDF(doc, resume, user);
     }
   }
 
   // Word document export
-  async generateDOCX(resume, style = 'professional') {
+  async generateDOCX(resume, user, style = 'professional') {
     switch(style) {
       case 'modern':
-        return this.generateModernDOCX(resume);
+        return this.generateModernDOCX(resume, user);
       case 'creative':
-        return this.generateCreativeDOCX(resume);
+        return this.generateCreativeDOCX(resume, user);
       case 'minimal':
-        return this.generateMinimalDOCX(resume);
+        return this.generateMinimalDOCX(resume, user);
       case 'professional':
       default:
-        return this.generateProfessionalDOCX(resume);
+        return this.generateProfessionalDOCX(resume, user);
     }
   }
 
   // Professional style PDF
-  async generateProfessionalPDF(doc, resume) {
+  async generateProfessionalPDF(doc, resume, user) {
     // Header with contact info
-    doc.fontSize(24).text(`${resume.firstName} ${resume.lastName}`, { align: 'center' });
-    doc.fontSize(12).text(resume.email, { align: 'center' });
+    doc.fontSize(24).text(`${user.firstName} ${user.lastName}`, { align: 'center' });
+    doc.fontSize(12).text(user.email, { align: 'center' });
     
     // Summary
     doc.moveDown();
@@ -71,18 +71,18 @@ class ExportService {
   }
 
   // Modern style DOCX
-  async generateModernDOCX(resume) {
+  async generateModernDOCX(resume, user) {
     const doc = new Document({
       sections: [{
         properties: {},
         children: [
           new Paragraph({
-            text: `${resume.firstName} ${resume.lastName}`,
+            text: `${user.firstName} ${user.lastName}`,
             heading: HeadingLevel.TITLE,
             alignment: docx.AlignmentType.CENTER
           }),
           new Paragraph({
-            text: resume.email,
+            text: user.email,
             alignment: docx.AlignmentType.CENTER
           }),
           new Paragraph({
@@ -132,9 +132,9 @@ class ExportService {
   }
 
   // Generate plain text version
-  generatePlainText(resume) {
-    let text = `${resume.firstName} ${resume.lastName}\n`;
-    text += `${resume.email}\n\n`;
+  generatePlainText(resume, user) {
+    let text = `${user.firstName} ${user.lastName}\n`;
+    text += `${user.email}\n\n`;
     
     text += 'PROFESSIONAL SUMMARY\n';
     text += '===================\n';
@@ -155,10 +155,10 @@ class ExportService {
   }
 
   // Generate ATS-optimized version
-  generateATSVersion(resume) {
+  generateATSVersion(resume, user) {
     // Simple format with clear sections and keywords
-    let text = `${resume.firstName} ${resume.lastName}\n`;
-    text += `${resume.email}\n\n`;
+    let text = `${user.firstName} ${user.lastName}\n`;
+    text += `${user.email}\n\n`;
     
     // Add target job title for ATS
     text += `Target Position: ${resume.targetJobTitle}\n\n`;

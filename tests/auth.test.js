@@ -1,4 +1,5 @@
 const request = require('supertest');
+const { expect } = require('chai');
 const app = require('../src/server');
 const User = require('../src/models/user');
 const { generateTestToken } = require('./setup');
@@ -15,9 +16,9 @@ describe('Auth Routes', () => {
           lastName: 'User'
         });
 
-      expect(response.status).toBe(201);
-      expect(response.body).toHaveProperty('token');
-      expect(response.body.user).toHaveProperty('email', 'test@example.com');
+      expect(response.status).to.equal(201);
+      expect(response.body).to.have.property('token');
+      expect(response.body.user).to.have.property('email', 'test@example.com');
     });
 
     it('should not register user with existing email', async () => {
@@ -38,8 +39,8 @@ describe('Auth Routes', () => {
           lastName: 'User'
         });
 
-      expect(response.status).toBe(400);
-      expect(response.body).toHaveProperty('error', 'Email already registered');
+      expect(response.status).to.equal(400);
+      expect(response.body).to.have.property('error', 'Email already registered');
     });
   });
 
@@ -61,8 +62,8 @@ describe('Auth Routes', () => {
           password: 'password123'
         });
 
-      expect(response.status).toBe(200);
-      expect(response.body).toHaveProperty('token');
+      expect(response.status).to.equal(200);
+      expect(response.body).to.have.property('token');
     });
 
     it('should not login with incorrect password', async () => {
@@ -73,8 +74,8 @@ describe('Auth Routes', () => {
           password: 'wrongpassword'
         });
 
-      expect(response.status).toBe(401);
-      expect(response.body).toHaveProperty('error', 'Invalid credentials');
+      expect(response.status).to.equal(401);
+      expect(response.body).to.have.property('error', 'Invalid credentials');
     });
   });
 });
